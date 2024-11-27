@@ -1,0 +1,15 @@
+{
+    "name": "joelmesashontoria/uf2_monolog_joel-mesas",
+    "autoload": {
+        "psr-4": {
+            "Joelmesashontoria\\Uf2MonologJoelMesas\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jowi",
+            "email": "joelmesash@gmail.com"
+        }
+    ],
+    "require": {}
+}
