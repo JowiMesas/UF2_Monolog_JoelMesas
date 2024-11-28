@@ -1,12 +1,11 @@
 <?php
 $steps=0;
 // load dependencies
-require './vendor/autoload.php'; 
+require_once __DIR__ . '/../vendor/autoload.php'; 
 ++$steps;
 use Monolog\Level;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
-
 // create log
 $log = new Logger("LogWorkerDB");
 // define logs location
@@ -16,7 +15,14 @@ $log->pushHandler(new StreamHandler("../logs/WorkerDB.log", Level::Error));
 //ddbb connection, read from miConf.ini
 //TODO
 ++$steps;
-
+// $db = [
+//     "host" => "127.0.0.1",
+//     "port" => "3306",
+//     "user" => "root",
+//     "pwd" => "",
+//     "db_name" => "workerdb"
+// ];
+$db = parse_ini_file("../conf/miConf.ini", true)["params_db_sql"];
 try {
     $mysqli = new mysqli($db["host"], $db["user"], $db["pwd"], $db["db_name"]); //4 db
     // write info message with "Connection successfully"
